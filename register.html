@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>J-PRO Register</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body class="auth-page">
+
+    <div class="auth-card">
+        <img src="images/logo.png" class="auth-logo" alt="J-PRO Logo" onerror="this.style.display='none'">
+
+        <h2>Register</h2>
+        <p>Create your J-PRO account</p>
+
+        <form id="registerForm">
+            <div class="input-group">
+                <label>Username</label>
+                <input type="text" id="regName" required>
+            </div>
+
+            <div class="input-group">
+                <label>Password</label>
+                <input type="password" id="regPassword" required>
+            </div>
+
+            <div class="input-group">
+                <label>Role</label>
+                <select id="regRole">
+                    <option value="customer">Customer</option>
+                    <option value="admin">Admin Demo</option>
+                </select>
+            </div>
+
+            <button type="submit" class="btn btn-yellow btn-block">CREATE ACCOUNT</button>
+        </form>
+
+        <p class="auth-switch">
+            Already have an account? <a href="login.html">Login here</a>
+        </p>
+
+        <p class="auth-switch">
+            <a href="auth.html">Back</a>
+        </p>
+    </div>
+
+</body>
+</html>

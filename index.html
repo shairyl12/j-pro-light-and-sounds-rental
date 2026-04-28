@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>J-PRO | Dashboard</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+
+    <nav class="main-nav">
+        <div class="nav-container">
+            <a href="#home" class="nav-brand">
+                J-PRO <span class="accent">RENTALS</span>
+            </a>
+
+            <ul class="nav-links">
+                <li><a href="#home">HOME</a></li>
+                <li><a href="#about">ABOUT</a></li>
+                <li><a href="#services">SERVICES</a></li>
+                <li><a href="#contact">CONTACT</a></li>
+
+                <li><span id="nav-user" class="nav-user"></span></li>
+
+                <li>
+                    <a href="#customer-view" id="nav-book-btn" class="btn btn-yellow">
+                        BOOK NOW
+                    </a>
+                </li>
+
+                <li>
+                    <button id="nav-logout-btn" class="btn btn-danger" style="display:none;" onclick="logout()">
+                        LOGOUT
+                    </button>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <header id="home" class="hero-section">
+        <div class="hero-content">
+            <h1 class="hero-title">Premium Sound and Lighting Rentals</h1>
+            <p class="hero-tagline">Where Sound Meets Light, Magic Happens</p>
+        </div>
+    </header>
+
+    <main class="wrapper">
+
+        <!-- CUSTOMER VIEW -->
+        <section id="customer-view" class="dashboard-container" hidden>
+            <div class="header-row">
+                <div>
+                    <p class="eyebrow">Customer Portal</p>
+                    <h1>Welcome, <span id="user-display" class="accent"></span></h1>
+                    <p class="muted">Select a package and submit your event booking.</p>
+                </div>
+
+                <div id="date-display" class="muted"></div>
+            </div>
+
+            <h2>Available Rental Packages</h2>
+
+            <div id="package-list" class="package-grid">
+                <!-- Loaded by script.js -->
+            </div>
+
+            <div id="booking-panel" class="card hidden">
+                <h2>
+                    Book Package:
+                    <span id="selected-package-name" class="accent"></span>
+                </h2>
+
+                <form id="bookingForm" class="form-grid">
+                    <div class="input-group">
+                        <label>Event Date</label>
+                        <input type="date" id="eventDate" required>
+                    </div>
+
+                    <div class="input-group">
+                        <label>Event Location</label>
+                        <input type="text" id="eventLocation" placeholder="Hinunangan, Southern Leyte" required>
+                    </div>
+
+                    <div class="input-group full">
+                        <label>Notes / Request</label>
+                        <textarea id="bookingNotes" rows="4" placeholder="Optional details..."></textarea>
+                    </div>
+
+                    <div class="input-group full">
+                        <button type="submit" class="btn btn-yellow btn-block">
+                            SUBMIT BOOKING
+                        </button>
+                    </div>
+                </form>
+            </div>
+
+            <div class="card">
+                <h2>My Bookings</h2>
+
+                <div class="table-wrap">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Package</th>
+                                <th>Date</th>
+                                <th>Location</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody id="user-booking-rows">
+                            <!-- Loaded by script.js -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- ADMIN VIEW -->
+        <section id="admin-view" class="dashboard-container" hidden>
+            <p class="eyebrow">Admin Portal</p>
+            <h1 class="accent">Admin Dashboard</h1>
+            <p class="muted">Manage incoming rental booking requests.</p>
+
+            <div class="table-wrap">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Customer</th>
+                            <th>Package</th>
+                            <th>Event Date</th>
+                            <th>Location</th>
+                            <th>Status</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="admin-rows">
+                        <!-- Loaded by script.js -->
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- ABOUT -->
+        <section id="about" class="content-section">
+            <div class="card">
+                <h2>About J-PRO</h2>
+                <p>
+                    Based in Palongpong, Hinunangan, Southern Leyte, J-PRO Lights & Sounds
+                    provides quality audio and lighting equipment for events, parties,
+                    birthdays, concerts, and special occasions.
+                </p>
+            </div>
+        </section>
+
+        <!-- SERVICES -->
+        <section id="services" class="content-section">
+            <div class="card">
+                <h2>Our Services</h2>
+
+                <div class="package-grid">
+                    <div class="card">
+                        <h3 class="accent">Sound Systems</h3>
+                        <p>High-quality speakers, mixers, microphones, and audio setup.</p>
+                    </div>
+
+                    <div class="card">
+                        <h3 class="accent">Lighting</h3>
+                        <p>Professional lights for stage, party, and event production.</p>
+                    </div>
+
+                    <div class="card">
+                        <h3 class="accent">Technical Support</h3>
+                        <p>On-site crew support for smooth event operation.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTACT -->
+        <section id="contact" class="content-section">
+            <div class="card">
+                <h2>Contact</h2>
+                <p>Location: Palongpong, Hinunangan, Southern Leyte</p>
+                <p>For inquiries, message J-PRO Lights & Sounds Rentals.</p>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2026 J-PRO Lights & Sounds Rentals. All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>

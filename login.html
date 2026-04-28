@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>J-PRO Login</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body class="auth-page">
+
+    <div class="auth-card">
+        <img src="images/logo.png" class="auth-logo" alt="J-PRO Logo" onerror="this.style.display='none'">
+
+        <h2>Login</h2>
+        <p>Enter your account details</p>
+
+        <form id="loginForm">
+            <div class="input-group">
+                <label>Username</label>
+                <input type="text" id="username" required>
+            </div>
+
+            <div class="input-group">
+                <label>Password</label>
+                <input type="password" id="password" required>
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-block">LOGIN</button>
+        </form>
+
+        <p class="auth-switch">
+            No account? <a href="register.html">Register here</a>
+        </p>
+
+        <p class="auth-switch">
+            <a href="auth.html">Back</a>
+        </p>
+    </div>
+
+</body>
+</html>

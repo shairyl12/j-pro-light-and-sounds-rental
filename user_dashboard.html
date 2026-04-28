@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>J-PRO | User Dashboard</title>
+    <style>
+        :root {
+            --primary: #00E5FF;
+            --bg-dark: rgba(0, 0, 0, 0.9);
+            --glass: rgba(255, 255, 255, 0.05);
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', sans-serif;
+            background: url('images/background.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: white;
+            display: flex;
+            min-height: 100vh;
+        }
+
+        /* SIDEBAR DESIGN */
+        .sidebar {
+            width: 260px;
+            background: var(--bg-dark);
+            backdrop-filter: blur(15px);
+            border-right: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            flex-direction: column;
+            padding: 30px 20px;
+            position: fixed;
+            height: 100vh;
+        }
+
+        .nav-brand {
+            font-size: 22px;
+            font-weight: bold;
+            color: var(--primary);
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        .nav-menu { list-style: none; padding: 0; }
+        .nav-item {
+            padding: 15px;
+            margin-bottom: 10px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: 0.3s;
+            display: flex;
+            align-items: center;
+            color: #ccc;
+            text-decoration: none;
+        }
+
+        .nav-item:hover, .nav-item.active {
+            background: var(--glass);
+            color: var(--primary);
+            border-left: 4px solid var(--primary);
+        }
+
+        /* MAIN CONTENT AREA */
+        .main-content {
+            margin-left: 280px;
+            padding: 40px;
+            width: 100%;
+        }
+
+        .header-flex {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+
+        .welcome-card {
+            background: var(--glass);
+            padding: 25px;
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            margin-bottom: 30px;
+        }
+
+        /* PACKAGE GRID */
+        .package-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .package-card {
+            background: rgba(0, 0, 0, 0.7);
+            border-radius: 12px;
+            padding: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: 0.3s;
+            text-align: center;
+        }
+
+        .package-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary);
+        }
+
+        .package-card h3 { color: var(--primary); margin-top: 0; }
+        .package-price { font-size: 20px; font-weight: bold; margin: 15px 0; }
+
+        .btn-book {
+            background: var(--primary);
+            color: black;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        .logout-btn {
+            margin-top: auto;
+            background: #ff4d4d;
+            color: white;
+            border: none;
+            padding: 12px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="sidebar">
+        <div class="nav-brand">J-PRO RENTALS</div>
+        <div class="nav-menu">
+            <a href="#home" class="nav-item active">Dashboard</a>
+            <a href="#bookings" class="nav-item">My Bookings</a>
+            <a href="#profile" class="nav-item">Profile Settings</a>
+        </div>
+        <button class="logout-btn" onclick="logout()">LOGOUT</button>
+    </nav>
+
+    <main class="main-content">
+        <div class="header-flex">
+            <h1>Customer Portal</h1>
+            <div id="date-display" style="color: #888;"></div>
+        </div>
+
+        <div class="welcome-card">
+            <h2>Welcome back, <span id="user-display" style="color: var(--primary);">User</span>!</h2>
+            <p>Ready to light up your next event in Hinunangan? Browse our packages below.</p>
+        </div>
+
+        <h3>Available Rental Packages</h3>
+        <div class="package-grid" id="package-list">
+            <div class="package-card">
+                <h3>Basic Sound</h3>
+                <p>Perfect for small parties and birthdays.</p>
+                <div class="package-price">₱1,500.00</div>
+                <button class="btn-book">BOOK NOW</button>
+            </div>
+
+            <div class="package-card">
+                <h3>Party Package</h3>
+                <p>Full sound system + Basic Disco Lights.</p>
+                <div class="package-price">₱3,000.00</div>
+                <button class="btn-book">BOOK NOW</button>
+            </div>
+
+            <div class="package-card">
+                <h3>Concert Setup</h3>
+                <p>High-power audio for large outdoor events.</p>
+                <div class="package-price">₱7,500.00</div>
+                <button class="btn-book">BOOK NOW</button>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // Set the current date
+        document.getElementById('date-display').innerText = new Date().toDateString();
+
+        // Retrieve user name from localStorage (saved during login)
+        const userName = localStorage.getItem('userName') || 'Valued Customer';
+        document.getElementById('user-display').innerText = userName;
+
+        function logout() {
+            localStorage.clear();
+            window.location.href = 'auth.html';
+        }
+    </script>
+</body>
+</html>
